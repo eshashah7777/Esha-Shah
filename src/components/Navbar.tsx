@@ -25,6 +25,7 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
     { label: 'Work', id: 'work' },
     { label: 'Skills', id: 'skills' },
     { label: 'Brands', id: 'brands' },
+    { label: "Let's Connect", id: 'connect' },
   ];
 
   const handleLinkClick = (id: string) => {

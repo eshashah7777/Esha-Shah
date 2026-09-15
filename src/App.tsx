@@ -38,7 +38,7 @@ export default function App() {
 
   // Observe active section on scroll
   useEffect(() => {
-    const sectionIds = ['hero', 'about', 'education', 'experience', 'work', 'skills', 'process', 'brands'];
+    const sectionIds = ['hero', 'about', 'education', 'experience', 'work', 'skills', 'process', 'brands', 'connect'];
     const handleScroll = () => {
       const scrollPos = window.scrollY + 200;
       for (const id of sectionIds) {
@@ -77,8 +77,8 @@ export default function App() {
         <Brands onSelectProject={handleOpenProject} />
       </main>
 
-      {/* Footer */}
-      <Footer onNavigate={scrollToSection} />
+      {/* Footer / Let's Connect */}
+      <Footer />
 
       {/* Mini Case Study Experience Modal */}
       <ProjectModal

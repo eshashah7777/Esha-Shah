@@ -6,6 +6,8 @@ export const PERSONAL_INFO = {
   role: 'Digital Business & Advertising Student',
   subheading: 'I like understanding brands, decoding consumers and turning research into meaningful ideas.',
   email: 'eshashah7777@gmail.com',
+  phone: '+91 9699499100',
+  location: 'Mumbai, Maharashtra',
   linkedin: 'https://www.linkedin.com/in/esha-shah-22445834a/',
   education: {
     institution: 'K.P.B. Hinduja College of Commerce, Mumbai',
