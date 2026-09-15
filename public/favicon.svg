@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="eshagrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8F325A" />
+      <stop offset="100%" stop-color="#5E1D38" />
+    </linearGradient>
+    <filter id="softshadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Background Squircle -->
+  <rect width="64" height="64" rx="16" fill="url(#eshagrad)" />
+  
+  <!-- Subtle inner border accent -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#F4A7C1" stroke-width="1.5" stroke-opacity="0.45" />
+
+  <!-- Monogram ES in editorial serif style -->
+  <g filter="url(#softshadow)">
+    <text 
+      x="27" 
+      y="43" 
+      font-family="'Playfair Display', Georgia, 'Times New Roman', serif" 
+      font-size="29" 
+      font-weight="700" 
+      letter-spacing="-1" 
+      fill="#FFF9F5" 
+      text-anchor="middle">ES</text>
+  </g>
+
+  <!-- Signature 4-pointed Sparkle Star ✦ -->
+  <path 
+    d="M 48,9 C 48,15 50.5,17.5 56,17.5 C 50.5,17.5 48,20 48,26 C 48,20 45.5,17.5 40,17.5 C 45.5,17.5 48,15 48,9 Z" 
+    fill="#F4A7C1" 
+  />
+  <circle cx="48" cy="17.5" r="1.5" fill="#FFF9F5" />
+</svg>

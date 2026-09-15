@@ -47,14 +47,21 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
         <button
           id="nav-logo-btn"
           onClick={() => handleLinkClick('hero')}
-          className="text-left group flex items-baseline gap-2 focus:outline-hidden cursor-pointer"
+          className="text-left group flex items-center gap-2.5 focus:outline-hidden cursor-pointer"
         >
-          <span className="font-serif-display text-xl sm:text-2xl font-bold tracking-tight text-[#241F21] group-hover:text-[#7C284C] transition-colors">
-            ESHA SHAH
-          </span>
-          <span className="hidden md:inline-block font-handwriting text-sm text-[#7C284C] rotate-[-2deg]">
-            ✦ portfolio
-          </span>
+          <img
+            src="/favicon.svg"
+            alt="ES Logo"
+            className="w-7 h-7 rounded-lg shadow-2xs group-hover:rotate-6 transition-transform"
+          />
+          <div className="flex items-baseline gap-2">
+            <span className="font-serif-display text-xl sm:text-2xl font-bold tracking-tight text-[#241F21] group-hover:text-[#7C284C] transition-colors">
+              ESHA SHAH
+            </span>
+            <span className="hidden md:inline-block font-handwriting text-sm text-[#7C284C] rotate-[-2deg]">
+              ✦ portfolio
+            </span>
+          </div>
         </button>
 
         {/* Desktop Nav Links */}
