@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ClickSpark from './ClickSpark';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -58,35 +59,43 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FFF9F5] text-[#241F21] relative selection:bg-[#F4A7C1]/30 selection:text-[#7C284C]">
-      {/* Navigation */}
-      <Navbar onNavigate={scrollToSection} activeSection={activeSection} />
+    <ClickSpark
+      sparkColor="#ffffff"
+      sparkSize={10}
+      sparkRadius={15}
+      sparkCount={8}
+      duration={400}
+    >
+      <div className="min-h-screen bg-[#FFF9F5] text-[#241F21] relative selection:bg-[#F4A7C1]/30 selection:text-[#7C284C]">
+        {/* Navigation */}
+        <Navbar onNavigate={scrollToSection} activeSection={activeSection} />
 
-      {/* Main Content Sections */}
-      <main>
-        <Hero
-          onExploreWork={() => scrollToSection('work')}
-          onExploreExperience={() => scrollToSection('experience')}
+        {/* Main Content Sections */}
+        <main>
+          <Hero
+            onExploreWork={() => scrollToSection('work')}
+            onExploreExperience={() => scrollToSection('experience')}
+          />
+          <About />
+          <Education />
+          <Experience onSelectProject={handleOpenProject} />
+          <Projects onSelectProject={handleOpenProject} />
+          <Skills />
+          <Process />
+          <Brands onSelectProject={handleOpenProject} />
+        </main>
+
+        {/* Footer / Let's Connect */}
+        <Footer />
+
+        {/* Mini Case Study Experience Modal */}
+        <ProjectModal
+          project={selectedProject}
+          onClose={handleCloseProject}
+          onSelectOtherProject={handleOpenProject}
+          allProjects={PROJECTS}
         />
-        <About />
-        <Education />
-        <Experience onSelectProject={handleOpenProject} />
-        <Projects onSelectProject={handleOpenProject} />
-        <Skills />
-        <Process />
-        <Brands onSelectProject={handleOpenProject} />
-      </main>
-
-      {/* Footer / Let's Connect */}
-      <Footer />
-
-      {/* Mini Case Study Experience Modal */}
-      <ProjectModal
-        project={selectedProject}
-        onClose={handleCloseProject}
-        onSelectOtherProject={handleOpenProject}
-        allProjects={PROJECTS}
-      />
-    </div>
+      </div>
+    </ClickSpark>
   );
 }
