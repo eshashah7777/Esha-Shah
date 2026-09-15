@@ -81,12 +81,12 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
         </nav>
 
         {/* Mobile Toggle Button */}
-        <div className="flex items-center">
+        <div className="flex items-center md:hidden">
           <button
             id="mobile-menu-toggle"
             aria-label="Toggle Navigation Menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-[#241F21] hover:bg-[#241F21]/5 focus:outline-hidden cursor-pointer"
+            className="p-2 rounded-lg text-[#241F21] hover:bg-[#241F21]/5 focus:outline-hidden cursor-pointer"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
