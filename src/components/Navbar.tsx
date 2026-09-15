@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   onNavigate: (sectionId: string) => void;
@@ -25,7 +25,6 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
     { label: 'Work', id: 'work' },
     { label: 'Skills', id: 'skills' },
     { label: 'Brands', id: 'brands' },
-    { label: 'Contact', id: 'contact' },
   ];
 
   const handleLinkClick = (id: string) => {
@@ -47,7 +46,7 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
         <button
           id="nav-logo-btn"
           onClick={() => handleLinkClick('hero')}
-          className="text-left group flex items-baseline gap-2 focus:outline-hidden"
+          className="text-left group flex items-baseline gap-2 focus:outline-hidden cursor-pointer"
         >
           <span className="font-serif-display text-xl sm:text-2xl font-bold tracking-tight text-[#241F21] group-hover:text-[#7C284C] transition-colors">
             ESHA SHAH
@@ -66,7 +65,7 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
                 key={link.id}
                 id={`nav-link-${link.id}`}
                 onClick={() => handleLinkClick(link.id)}
-                className={`px-3.5 py-1.5 text-sm font-medium rounded-full transition-all relative ${
+                className={`px-3.5 py-1.5 text-sm font-medium rounded-full transition-all relative cursor-pointer ${
                   isActive
                     ? 'text-[#241F21] font-semibold bg-[#F4A7C1]/25'
                     : 'text-[#574F53] hover:text-[#241F21] hover:bg-[#241F21]/5'
@@ -81,23 +80,13 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
           })}
         </nav>
 
-        {/* Action Button & Mobile Toggle */}
-        <div className="flex items-center gap-3">
-          <button
-            id="nav-cta-btn"
-            onClick={() => handleLinkClick('contact')}
-            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-[#241F21] text-[#FFF9F5] hover:bg-[#7C284C] transition-colors shadow-xs group"
-          >
-            <span>Let's Talk</span>
-            <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </button>
-
-          {/* Hamburger button */}
+        {/* Mobile Toggle Button */}
+        <div className="flex items-center">
           <button
             id="mobile-menu-toggle"
             aria-label="Toggle Navigation Menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-[#241F21] hover:bg-[#241F21]/5 focus:outline-hidden"
+            className="md:hidden p-2 rounded-lg text-[#241F21] hover:bg-[#241F21]/5 focus:outline-hidden cursor-pointer"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -128,16 +117,6 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
                 </button>
               );
             })}
-            <div className="pt-3 border-t border-[#241F21]/10 mt-1">
-              <button
-                id="mobile-cta-btn"
-                onClick={() => handleLinkClick('contact')}
-                className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-semibold bg-[#7C284C] text-white shadow-xs"
-              >
-                <span>Let's Talk</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </button>
-            </div>
           </div>
         </div>
       )}

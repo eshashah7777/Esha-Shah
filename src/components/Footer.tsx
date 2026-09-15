@@ -1,4 +1,4 @@
-import { ArrowUp, Heart, Sparkles, Mail, Linkedin, FileText } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolio';
 
 interface FooterProps {

@@ -1,12 +1,13 @@
-import { ArrowDown, ArrowUpRight, Sparkles, Compass, Lightbulb, Search, BookOpen } from 'lucide-react';
-import eshaPhoto from '../assets/images/esha_polaroid_1789468048264.jpg';
+import { ArrowDown, ArrowUpRight, Search } from 'lucide-react';
+import eshaPhoto from '../assets/images/esha_photo.png';
+import { PERSONAL_INFO } from '../data/portfolio';
 
 interface HeroProps {
   onExploreWork: () => void;
-  onConnect: () => void;
+  onExploreExperience: () => void;
 }
 
-export default function Hero({ onExploreWork, onConnect }: HeroProps) {
+export default function Hero({ onExploreWork, onExploreExperience }: HeroProps) {
   return (
     <section
       id="hero"
@@ -75,20 +76,31 @@ export default function Hero({ onExploreWork, onConnect }: HeroProps) {
               <button
                 id="hero-explore-work-btn"
                 onClick={onExploreWork}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold bg-[#241F21] text-[#FFF9F5] hover:bg-[#7C284C] transition-all shadow-sm group hover:shadow-md"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold bg-[#241F21] text-[#FFF9F5] hover:bg-[#7C284C] transition-all shadow-sm group hover:shadow-md cursor-pointer"
               >
                 <span>Explore My Work</span>
                 <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
               </button>
 
               <button
-                id="hero-lets-connect-btn"
-                onClick={onConnect}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold bg-[#FFF9F5] text-[#241F21] border border-[#241F21]/20 hover:border-[#7C284C] hover:text-[#7C284C] hover:bg-[#F4A7C1]/10 transition-all shadow-xs group"
+                id="hero-view-experience-btn"
+                onClick={onExploreExperience}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold bg-[#FFF9F5] text-[#241F21] border border-[#241F21]/20 hover:border-[#7C284C] hover:text-[#7C284C] hover:bg-[#F4A7C1]/10 transition-all shadow-xs group cursor-pointer"
               >
-                <span>Let's Connect</span>
-                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <span>Agency Experience</span>
+                <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
               </button>
+
+              <a
+                id="hero-linkedin-btn"
+                href={PERSONAL_INFO.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-3.5 rounded-full text-sm font-semibold text-[#574F53] hover:text-[#0369A1] transition-colors"
+              >
+                <span>LinkedIn</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
             </div>
 
             {/* Quick Micro-stats / Highlights */}
@@ -120,6 +132,10 @@ export default function Hero({ onExploreWork, onConnect }: HeroProps) {
                 <div className="overflow-hidden rounded-sm aspect-square bg-[#F4A7C1]/15 relative">
                   <img
                     src={eshaPhoto}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://i.ibb.co/0RwXLt0y/Screenshot-2026-09-15-143620.png';
+                    }}
+                    referrerPolicy="no-referrer"
                     alt="Esha Shah — Digital Business & Advertising Student"
                     className="w-full h-full object-cover object-center"
                     loading="eager"
