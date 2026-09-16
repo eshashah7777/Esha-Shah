@@ -55,7 +55,7 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
           <div className="w-7 h-7 rounded-full bg-[#7C284C] flex items-center justify-center text-white text-[11px] font-bold tracking-tight shadow-xs transition-transform duration-200 group-hover:scale-105">
             ES
           </div>
-          <span className="font-semibold text-sm tracking-tight text-[#241F21] group-hover:text-[#7C284C] transition-colors">
+          <span className="font-bold text-sm tracking-tight text-[#7C284C]">
             Esha Shah
           </span>
         </button>

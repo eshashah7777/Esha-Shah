@@ -29,7 +29,7 @@ export default function Education() {
             {/* Degree & Institution Info */}
             <div className="lg:col-span-8 space-y-5">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#241F21] text-white">
+                <span className="px-3.5 py-1 rounded-full text-xs font-semibold bg-[#7C284C] text-white shadow-2xs">
                   {education.period}
                 </span>
                 <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#FFF9F5] border border-[#241F21]/8 text-[#574F53]">
