@@ -17,7 +17,7 @@ export default function Skills() {
             capabilities & competencies ✦
           </span>
           <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#241F21] mt-1">
-            What I like doing
+            The Skills I Learned
           </h2>
           <p className="text-sm sm:text-base text-[#574F53] mt-2">
             The toolkit I bring to agency strategy desks, client servicing, and digital research.
