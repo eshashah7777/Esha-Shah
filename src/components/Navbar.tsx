@@ -42,8 +42,8 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
       <div
         className={`pointer-events-auto w-full max-w-5xl transition-all duration-300 rounded-full px-4 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between border ${
           isScrolled
-            ? 'bg-white/80 backdrop-blur-2xl border-[#241F21]/10 shadow-[0_8px_32px_rgba(0,0,0,0.06)]'
-            : 'bg-white/70 backdrop-blur-xl border-[#241F21]/8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]'
+            ? 'bg-white/95 backdrop-blur-2xl border-[#7C284C]/15 shadow-[0_8px_32px_rgba(124,40,76,0.08)]'
+            : 'bg-white backdrop-blur-xl border-[#7C284C]/10 shadow-[0_4px_24px_rgba(124,40,76,0.04)]'
         }`}
       >
         {/* Brand Monogram & Name */}
@@ -60,7 +60,7 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
           </span>
         </button>
 
-        {/* Desktop Nav Items - Apple Style Capsule Links */}
+        {/* Desktop Nav Items - White Capsule with Pink Active State and White Text */}
         <nav id="desktop-nav" className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
@@ -69,10 +69,10 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
                 key={link.id}
                 id={`nav-link-${link.id}`}
                 onClick={() => handleLinkClick(link.id)}
-                className={`px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-200 cursor-pointer ${
+                className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? 'bg-[#241F21] text-white shadow-xs'
-                    : 'text-[#574F53] hover:text-[#241F21] hover:bg-black/5'
+                    ? 'bg-[#7C284C] text-white shadow-[0_2px_10px_rgba(124,40,76,0.3)] font-semibold'
+                    : 'text-[#574F53] hover:text-[#7C284C] hover:bg-[#F4A7C1]/20'
                 }`}
               >
                 {link.label}
@@ -87,7 +87,7 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
             id="mobile-menu-toggle"
             aria-label="Toggle Navigation Menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 rounded-full text-[#241F21] hover:bg-black/5 focus:outline-hidden cursor-pointer"
+            className="p-1.5 rounded-full text-[#241F21] hover:bg-[#F4A7C1]/20 hover:text-[#7C284C] focus:outline-hidden cursor-pointer transition-colors"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -98,7 +98,7 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
       {mobileMenuOpen && (
         <div
           id="mobile-drawer"
-          className="pointer-events-auto absolute top-16 left-4 right-4 bg-white/95 backdrop-blur-2xl border border-[#241F21]/10 rounded-3xl p-4 shadow-xl md:hidden animate-in fade-in zoom-in-95 duration-200"
+          className="pointer-events-auto absolute top-16 left-4 right-4 bg-white border border-[#7C284C]/15 rounded-3xl p-4 shadow-xl md:hidden animate-in fade-in zoom-in-95 duration-200"
         >
           <div className="grid grid-cols-2 gap-1.5">
             {navLinks.map((link) => {
@@ -110,8 +110,8 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
                   onClick={() => handleLinkClick(link.id)}
                   className={`text-left px-3.5 py-2.5 rounded-xl text-xs font-medium transition-colors ${
                     isActive
-                      ? 'bg-[#241F21] text-white'
-                      : 'text-[#241F21] hover:bg-black/5'
+                      ? 'bg-[#7C284C] text-white font-semibold'
+                      : 'text-[#241F21] hover:bg-[#F4A7C1]/20 hover:text-[#7C284C]'
                   }`}
                 >
                   {link.label}
