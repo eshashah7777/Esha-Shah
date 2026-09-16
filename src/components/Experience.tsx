@@ -1,11 +1,11 @@
-import { Briefcase, ArrowUpRight, MessageCircle, TrendingUp, Users, CheckCircle2, Star, Sparkles, Building } from 'lucide-react';
+import { MessageCircle, TrendingUp, Users, CheckCircle2, Star } from 'lucide-react';
 import { EXPERIENCES } from '../data/portfolio';
 
 interface ExperienceProps {
-  onSelectProject: (projectId: string) => void;
+  onSelectProject?: (projectId: string) => void;
 }
 
-export default function Experience({ onSelectProject }: ExperienceProps) {
+export default function Experience({ onSelectProject: _onSelectProject }: ExperienceProps) {
   return (
     <section
       id="experience"
@@ -62,47 +62,22 @@ export default function Experience({ onSelectProject }: ExperienceProps) {
               Immersed in account management and brand strategy, working directly on high-profile accounts. Prepared cross-platform competitive scans, consumer sentiment audits, visual/audio moodboard references, and category benchmarking decks for brand leads.
             </p>
 
-            {/* Publicis Client Projects - Clickable Cards Grid as requested in PRD Section 12 */}
-            <div className="mt-8">
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="font-serif-display text-lg sm:text-xl font-bold text-[#241F21] flex items-center gap-2">
-                  <span>Client Projects Handled</span>
-                  <span className="text-xs font-sans font-normal text-[#574F53]">
-                    (click to inspect case study)
-                  </span>
-                </h4>
-                <span className="font-handwriting text-base text-[#7C284C]">
-                  6 accounts scanned ✦
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {EXPERIENCES[0].projects?.map((item) => (
-                  <button
-                    key={item.brand}
-                    id={`exp-proj-${item.projectId || item.brand.toLowerCase().replace(/\s+/g, '-')}`}
-                    onClick={() => item.projectId && onSelectProject(item.projectId)}
-                    className="group text-left p-4 rounded-2xl bg-[#FFF9F5] border border-[#241F21]/10 hover:border-[#7C284C] hover:bg-white transition-all shadow-2xs hover:shadow-xs flex flex-col justify-between"
+            {/* Key Responsibilities & Highlights */}
+            <div className="mt-6">
+              <h4 className="font-serif-display text-base sm:text-lg font-bold text-[#241F21] mb-3">
+                Key Responsibilities & Deliverables
+              </h4>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {EXPERIENCES[0].highlights.map((highlight, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-start gap-2.5 text-xs sm:text-sm text-[#574F53] bg-[#FFF9F5] p-3 rounded-xl border border-[#241F21]/5"
                   >
-                    <div>
-                      <div className="flex items-center justify-between mb-1.5">
-                        <span className="font-serif-display text-base font-bold text-[#241F21] group-hover:text-[#7C284C] transition-colors">
-                          {item.brand}
-                        </span>
-                        <ArrowUpRight className="w-4 h-4 text-[#574F53] group-hover:text-[#7C284C] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                      </div>
-                      <p className="text-xs text-[#574F53] leading-relaxed">
-                        {item.task}
-                      </p>
-                    </div>
-
-                    <div className="mt-3 pt-2 border-t border-[#241F21]/5 flex items-center justify-between text-[11px] text-[#7C284C] font-semibold">
-                      <span>View Deck Brief</span>
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-                    </div>
-                  </button>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#7C284C] mt-2 shrink-0" />
+                    <span>{highlight}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             {/* Core Competencies badges */}
