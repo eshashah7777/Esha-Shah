@@ -7,7 +7,6 @@ import Education from './components/Education';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-import Process from './components/Process';
 import Brands from './components/Brands';
 import Footer from './components/Footer';
 import ProjectModal from './components/ProjectModal';
@@ -39,7 +38,7 @@ export default function App() {
 
   // Observe active section on scroll
   useEffect(() => {
-    const sectionIds = ['hero', 'about', 'education', 'experience', 'work', 'skills', 'process', 'brands', 'connect'];
+    const sectionIds = ['hero', 'about', 'education', 'experience', 'work', 'skills', 'brands', 'connect'];
     const handleScroll = () => {
       const scrollPos = window.scrollY + 200;
       for (const id of sectionIds) {
@@ -81,7 +80,6 @@ export default function App() {
           <Experience onSelectProject={handleOpenProject} />
           <Projects onSelectProject={handleOpenProject} />
           <Skills />
-          <Process />
           <Brands onSelectProject={handleOpenProject} />
         </main>
 
