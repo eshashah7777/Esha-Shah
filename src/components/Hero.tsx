@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, Search } from 'lucide-react';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import eshaPhoto from '../assets/images/esha_photo.png';
 import { PERSONAL_INFO } from '../data/portfolio';
 
@@ -146,10 +146,10 @@ export default function Hero({ onExploreWork, onExploreExperience }: HeroProps) 
                   </div>
                 </div>
                 <div className="mt-3 text-center">
-                  <p className="font-serif-display font-bold text-lg text-[#241F21]">
+                  <p className="font-serif-display font-bold text-lg text-[#7C284C]">
                     Esha Shah
                   </p>
-                  <p className="font-handwriting text-base text-[#574F53]">
+                  <p className="font-handwriting text-base text-[#7C284C]">
                     strategist in the making ✎
                   </p>
                 </div>
@@ -163,32 +163,6 @@ export default function Hero({ onExploreWork, onExploreExperience }: HeroProps) 
               {/* Scrapbook Sticker: Advertising */}
               <div className="absolute top-1/2 -right-6 z-30 bg-[#F4A7C1] text-[#7C284C] px-4 py-1.5 rounded-full shadow-sm text-xs font-bold tracking-wide transform rotate-6 border border-white/70">
                 Advertising ✦
-              </div>
-
-              {/* Scrapbook Sticker: Research Snippet Card */}
-              <div className="absolute -bottom-6 -left-6 z-30 bg-[#FFF] border border-[#241F21]/15 p-3 rounded-xl shadow-md max-w-[190px] transform rotate-3 hover:rotate-1 transition-transform">
-                <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#7C284C]">
-                  <Search className="w-3.5 h-3.5" />
-                  <span>Research Desk</span>
-                </div>
-                <p className="text-xs text-[#241F21] font-medium mt-1 leading-snug">
-                  Audits • Scans • Consumer Insights
-                </p>
-                <div className="mt-1.5 flex gap-1">
-                  <span className="inline-block w-2 h-2 rounded-full bg-[#A8D8EA]" />
-                  <span className="inline-block w-2 h-2 rounded-full bg-[#D9E8C5]" />
-                  <span className="inline-block w-2 h-2 rounded-full bg-[#F4A7C1]" />
-                </div>
-              </div>
-
-              {/* Floating Mini Post-it: Ideas */}
-              <div className="absolute -bottom-4 right-2 z-30 bg-[#D9E8C5] text-[#241F21] p-2.5 rounded-lg shadow-sm transform -rotate-6 border border-white/60 text-xs font-medium">
-                <span className="font-handwriting text-sm block text-[#241F21]">
-                  "turning research into ideas"
-                </span>
-                <span className="text-[10px] text-[#241F21]/70 font-sans block mt-0.5">
-                  ✦ 100% curious
-                </span>
               </div>
 
               {/* Background decorative editorial frame */}

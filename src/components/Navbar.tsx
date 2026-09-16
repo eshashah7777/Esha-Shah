@@ -21,6 +21,7 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
   const navLinks = [
     { label: 'Home', id: 'hero' },
     { label: 'About', id: 'about' },
+    { label: 'Education', id: 'education' },
     { label: 'Experience', id: 'experience' },
     { label: 'Work', id: 'work' },
     { label: 'Skills', id: 'skills' },
