@@ -7,14 +7,14 @@ interface NavbarProps {
 }
 
 export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -26,7 +26,7 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
     { label: 'Work', id: 'work' },
     { label: 'Skills', id: 'skills' },
     { label: 'Brands', id: 'brands' },
-    { label: "Let's Connect", id: 'connect' },
+    { label: 'Contact', id: 'connect' },
   ];
 
   const handleLinkClick = (id: string) => {
@@ -37,36 +37,31 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
   return (
     <header
       id="main-navbar"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#FFF9F5]/90 backdrop-blur-md border-b border-[#241F21]/10 shadow-xs py-3'
-          : 'bg-transparent py-5'
-      }`}
+      className="fixed top-3 sm:top-5 left-0 right-0 z-50 flex justify-center px-3 sm:px-6 pointer-events-none"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        {/* Brand / Logo */}
+      <div
+        className={`pointer-events-auto w-full max-w-5xl transition-all duration-300 rounded-full px-4 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between border ${
+          isScrolled
+            ? 'bg-white/80 backdrop-blur-2xl border-[#241F21]/10 shadow-[0_8px_32px_rgba(0,0,0,0.06)]'
+            : 'bg-white/70 backdrop-blur-xl border-[#241F21]/8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]'
+        }`}
+      >
+        {/* Brand Monogram & Name */}
         <button
           id="nav-logo-btn"
           onClick={() => handleLinkClick('hero')}
-          className="text-left group flex items-center gap-2.5 focus:outline-hidden cursor-pointer"
+          className="group flex items-center gap-2.5 focus:outline-hidden cursor-pointer"
         >
-          <img
-            src="/favicon.svg"
-            alt="ES Logo"
-            className="w-7 h-7 rounded-lg shadow-2xs group-hover:rotate-6 transition-transform"
-          />
-          <div className="flex items-baseline gap-2">
-            <span className="font-serif-display text-xl sm:text-2xl font-bold tracking-tight text-[#241F21] group-hover:text-[#7C284C] transition-colors">
-              ESHA SHAH
-            </span>
-            <span className="hidden md:inline-block font-handwriting text-sm text-[#7C284C] rotate-[-2deg]">
-              ✦ portfolio
-            </span>
+          <div className="w-7 h-7 rounded-full bg-[#7C284C] flex items-center justify-center text-white text-[11px] font-bold tracking-tight shadow-xs transition-transform duration-200 group-hover:scale-105">
+            ES
           </div>
+          <span className="font-semibold text-sm tracking-tight text-[#241F21] group-hover:text-[#7C284C] transition-colors">
+            Esha Shah
+          </span>
         </button>
 
-        {/* Desktop Nav Links */}
-        <nav id="desktop-nav" className="hidden md:flex items-center gap-1 lg:gap-2">
+        {/* Desktop Nav Items - Apple Style Capsule Links */}
+        <nav id="desktop-nav" className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -74,41 +69,38 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
                 key={link.id}
                 id={`nav-link-${link.id}`}
                 onClick={() => handleLinkClick(link.id)}
-                className={`px-3.5 py-1.5 text-sm font-medium rounded-full transition-all relative cursor-pointer ${
+                className={`px-3 py-1.5 text-xs font-medium rounded-full transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? 'text-[#241F21] font-semibold bg-[#F4A7C1]/25'
-                    : 'text-[#574F53] hover:text-[#241F21] hover:bg-[#241F21]/5'
+                    ? 'bg-[#241F21] text-white shadow-xs'
+                    : 'text-[#574F53] hover:text-[#241F21] hover:bg-black/5'
                 }`}
               >
                 {link.label}
-                {isActive && (
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#7C284C] rounded-full" />
-                )}
               </button>
             );
           })}
         </nav>
 
-        {/* Mobile Toggle Button */}
+        {/* Mobile Toggle (visible on mobile only) */}
         <div className="flex items-center md:hidden">
           <button
             id="mobile-menu-toggle"
             aria-label="Toggle Navigation Menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-[#241F21] hover:bg-[#241F21]/5 focus:outline-hidden cursor-pointer"
+            className="p-1.5 rounded-full text-[#241F21] hover:bg-black/5 focus:outline-hidden cursor-pointer"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Capsule */}
       {mobileMenuOpen && (
         <div
           id="mobile-drawer"
-          className="md:hidden bg-[#FFF9F5] border-b border-[#241F21]/10 px-6 py-5 shadow-lg animate-in slide-in-from-top-2 duration-200"
+          className="pointer-events-auto absolute top-16 left-4 right-4 bg-white/95 backdrop-blur-2xl border border-[#241F21]/10 rounded-3xl p-4 shadow-xl md:hidden animate-in fade-in zoom-in-95 duration-200"
         >
-          <div className="flex flex-col gap-2">
+          <div className="grid grid-cols-2 gap-1.5">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -116,10 +108,10 @@ export default function Navbar({ onNavigate, activeSection }: NavbarProps) {
                   key={link.id}
                   id={`mobile-nav-link-${link.id}`}
                   onClick={() => handleLinkClick(link.id)}
-                  className={`text-left px-4 py-2.5 rounded-xl text-base font-medium transition-colors ${
+                  className={`text-left px-3.5 py-2.5 rounded-xl text-xs font-medium transition-colors ${
                     isActive
-                      ? 'bg-[#F4A7C1]/20 text-[#7C284C] font-semibold'
-                      : 'text-[#241F21] hover:bg-[#241F21]/5'
+                      ? 'bg-[#241F21] text-white'
+                      : 'text-[#241F21] hover:bg-black/5'
                   }`}
                 >
                   {link.label}

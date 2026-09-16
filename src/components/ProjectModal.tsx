@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { X, ArrowRight, CheckCircle, Sparkles, FileText, Compass, Layers, Lightbulb, ExternalLink } from 'lucide-react';
+import { X, CheckCircle, FileText, Compass, Layers, Lightbulb } from 'lucide-react';
 import { Project } from '../types';
 
 interface ProjectModalProps {
@@ -36,38 +36,38 @@ export default function ProjectModal({
   return (
     <div
       id="project-case-study-modal"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-[#241F21]/60 backdrop-blur-xs animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-black/40 backdrop-blur-xl animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[92vh] bg-[#FFF9F5] rounded-3xl border border-[#241F21]/15 shadow-2xl overflow-y-auto my-auto text-left"
+        className="relative w-full max-w-4xl max-h-[92vh] bg-[#FFF9F5] rounded-[32px] border border-[#241F21]/10 shadow-2xl overflow-y-auto my-auto text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Sticky Header with Close Button */}
-        <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 bg-[#FFF9F5]/95 backdrop-blur-md border-b border-[#241F21]/10">
+        <div className="sticky top-0 z-20 flex items-center justify-between px-6 sm:px-8 py-4 bg-[#FFF9F5]/90 backdrop-blur-xl border-b border-[#241F21]/8">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#7C284C]" />
+            <span className="w-2 h-2 rounded-full bg-[#7C284C]" />
             <span className="text-xs uppercase tracking-wider font-semibold text-[#574F53]">
-              Case Study & Strategy Brief
+              Strategy Case Study Brief
             </span>
           </div>
           <button
             id="close-modal-btn"
             onClick={onClose}
             aria-label="Close Case Study"
-            className="p-2 rounded-full text-[#241F21] hover:bg-[#241F21]/10 transition-colors"
+            className="p-2 rounded-full text-[#241F21] bg-black/5 hover:bg-black/10 transition-colors cursor-pointer"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Modal Body */}
         <div className="p-6 sm:p-10 space-y-8">
           {/* Title and Brand Header */}
-          <div className="space-y-3 border-b border-[#241F21]/10 pb-6">
+          <div className="space-y-3 border-b border-[#241F21]/8 pb-6">
             <div className="flex flex-wrap items-center gap-2">
               <span
-                className="px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider border"
+                className="px-3.5 py-1 rounded-full text-xs font-semibold tracking-tight shadow-2xs"
                 style={{
                   backgroundColor: project.slideTheme.badgeBg,
                   color: project.slideTheme.badgeText,
@@ -76,12 +76,15 @@ export default function ProjectModal({
               >
                 {project.brand}
               </span>
-              <span className="text-xs font-medium text-[#574F53] px-2.5 py-0.5 rounded-md bg-[#241F21]/5">
+              <span className="text-xs font-medium text-[#574F53] px-2.5 py-0.5 rounded-full bg-[#241F21]/5">
                 {project.category}
+              </span>
+              <span className="text-xs font-mono text-[#574F53] ml-auto">
+                Agency Brief
               </span>
             </div>
 
-            <h2 className="font-serif-display text-3xl sm:text-4xl font-bold text-[#241F21] leading-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-[#241F21] leading-tight">
               {project.title}
             </h2>
 
@@ -94,7 +97,7 @@ export default function ProjectModal({
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2.5 py-1 rounded-md text-xs font-medium bg-white border border-[#241F21]/10 text-[#241F21]"
+                  className="px-2.5 py-1 rounded-full text-xs font-medium bg-white border border-[#241F21]/8 text-[#241F21]"
                 >
                   #{tag}
                 </span>
@@ -104,7 +107,7 @@ export default function ProjectModal({
 
           {/* Interactive Deck Slide Preview Canvas */}
           <div
-            className="rounded-2xl p-6 sm:p-8 border relative overflow-hidden shadow-xs"
+            className="rounded-[24px] p-6 sm:p-8 border relative overflow-hidden shadow-xs"
             style={{
               backgroundColor: project.slideTheme.bg,
               borderColor: project.slideTheme.border
@@ -118,7 +121,7 @@ export default function ProjectModal({
                   Publicis Groupe / Account Strategy Deck
                 </span>
               </div>
-              <span className="font-handwriting text-base text-[#7C284C]">
+              <span className="text-xs font-mono text-[#7C284C]">
                 Slide 01 • Executive Overview
               </span>
             </div>
@@ -128,7 +131,7 @@ export default function ProjectModal({
                 <span className="text-xs font-bold uppercase tracking-wider text-[#7C284C]">
                   Core Strategic Challenge
                 </span>
-                <p className="font-serif-display text-xl sm:text-2xl font-bold text-[#241F21] mt-1 mb-3">
+                <p className="text-lg sm:text-xl font-bold text-[#241F21] mt-1 mb-3">
                   "{project.brief}"
                 </p>
                 <div className="flex items-center gap-2 text-xs font-medium text-[#574F53]">
@@ -138,21 +141,21 @@ export default function ProjectModal({
               </div>
 
               {/* Research Matrix Graphic representation */}
-              <div className="bg-white/90 backdrop-blur-xs p-4 rounded-xl border border-[#241F21]/10 shadow-2xs space-y-2.5 text-xs">
+              <div className="bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-[#241F21]/8 shadow-2xs space-y-2.5 text-xs">
                 <div className="font-semibold text-[#241F21] flex items-center justify-between">
                   <span>Research Pillars Analyzed</span>
                   <span className="text-[10px] text-[#7C284C] font-mono">100% AUDITED</span>
                 </div>
                 <div className="space-y-1.5">
-                  <div className="flex items-center justify-between p-2 rounded-lg bg-[#FFF9F5]">
+                  <div className="flex items-center justify-between p-2 rounded-xl bg-[#FFF9F5]">
                     <span className="text-[#574F53]">Content & Messaging Tone</span>
                     <span className="font-semibold text-[#241F21]">Cross-Channel</span>
                   </div>
-                  <div className="flex items-center justify-between p-2 rounded-lg bg-[#FFF9F5]">
+                  <div className="flex items-center justify-between p-2 rounded-xl bg-[#FFF9F5]">
                     <span className="text-[#574F53]">Competitive Differentiation</span>
                     <span className="font-semibold text-[#241F21]">Benchmarked</span>
                   </div>
-                  <div className="flex items-center justify-between p-2 rounded-lg bg-[#FFF9F5]">
+                  <div className="flex items-center justify-between p-2 rounded-xl bg-[#FFF9F5]">
                     <span className="text-[#574F53]">Audience Sentiment</span>
                     <span className="font-semibold text-[#241F21]">Decoded</span>
                   </div>
@@ -161,10 +164,10 @@ export default function ProjectModal({
             </div>
           </div>
 
-          {/* Structured Sections (Brief, Role, Approach, Deliverable, Takeaway) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Structured Sections (Brief, Role) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* The Brief */}
-            <div className="p-6 rounded-2xl bg-white border border-[#241F21]/10 shadow-2xs space-y-2">
+            <div className="p-6 rounded-[24px] bg-white border border-[#241F21]/8 shadow-2xs space-y-2">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#7C284C]">
                 <Compass className="w-4 h-4" />
                 <span>The Brief</span>
@@ -175,7 +178,7 @@ export default function ProjectModal({
             </div>
 
             {/* My Role */}
-            <div className="p-6 rounded-2xl bg-white border border-[#241F21]/10 shadow-2xs space-y-2">
+            <div className="p-6 rounded-[24px] bg-white border border-[#241F21]/8 shadow-2xs space-y-2">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0369A1]">
                 <Layers className="w-4 h-4" />
                 <span>My Role & Contribution</span>
@@ -187,17 +190,14 @@ export default function ProjectModal({
           </div>
 
           {/* Strategic Approach (Research -> Analysis -> Insight) */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-[#241F21]/10 shadow-2xs space-y-6">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-[#7C284C]" />
-              <h3 className="font-serif-display text-xl font-bold text-[#241F21]">
-                Strategic Approach
-              </h3>
-            </div>
+          <div className="p-6 sm:p-8 rounded-[28px] bg-white border border-[#241F21]/8 shadow-2xs space-y-6">
+            <h3 className="text-lg font-bold text-[#241F21]">
+              Strategic Approach
+            </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {/* Step 1: Research */}
-              <div className="p-4 rounded-xl bg-[#FFF9F5] border border-[#241F21]/10 space-y-2">
+              <div className="p-4 rounded-2xl bg-[#FFF9F5] border border-[#241F21]/6 space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold uppercase tracking-wider text-[#7C284C]">
                     01. Research
@@ -210,7 +210,7 @@ export default function ProjectModal({
               </div>
 
               {/* Step 2: Analysis */}
-              <div className="p-4 rounded-xl bg-[#FFF9F5] border border-[#241F21]/10 space-y-2">
+              <div className="p-4 rounded-2xl bg-[#FFF9F5] border border-[#241F21]/6 space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold uppercase tracking-wider text-[#5B21B6]">
                     02. Analysis
@@ -223,7 +223,7 @@ export default function ProjectModal({
               </div>
 
               {/* Step 3: Insight */}
-              <div className="p-4 rounded-xl bg-[#FFF9F5] border border-[#241F21]/10 space-y-2">
+              <div className="p-4 rounded-2xl bg-[#FFF9F5] border border-[#241F21]/6 space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold uppercase tracking-wider text-[#0369A1]">
                     03. Insight
@@ -240,7 +240,7 @@ export default function ProjectModal({
           {/* Deliverables & Key Takeaway */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
             {/* Deliverables */}
-            <div className="md:col-span-6 p-6 rounded-2xl bg-white border border-[#241F21]/10 shadow-2xs space-y-3">
+            <div className="md:col-span-6 p-6 rounded-[24px] bg-white border border-[#241F21]/8 shadow-2xs space-y-3">
               <h4 className="text-xs font-bold uppercase tracking-wider text-[#574F53] flex items-center gap-2">
                 <FileText className="w-4 h-4 text-[#7C284C]" />
                 Deliverables Created
@@ -256,24 +256,24 @@ export default function ProjectModal({
             </div>
 
             {/* Key Strategic Takeaway */}
-            <div className="md:col-span-6 p-6 rounded-2xl bg-[#FFFDE6] border border-[#E9E4B2] shadow-2xs space-y-2 flex flex-col justify-between">
+            <div className="md:col-span-6 p-6 rounded-[24px] bg-white border border-[#7C284C]/20 shadow-2xs space-y-2 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#7C284C]">
                   <Lightbulb className="w-4 h-4" />
                   <span>Key Strategic Takeaway</span>
                 </div>
-                <p className="font-serif-display text-base sm:text-lg font-bold text-[#241F21] mt-2 leading-snug">
+                <p className="text-base sm:text-lg font-bold text-[#241F21] mt-2 leading-snug">
                   "{project.keyTakeaway}"
                 </p>
               </div>
-              <p className="font-handwriting text-base text-[#7C284C] mt-3">
-                ✦ turning raw data into sharp creative direction
+              <p className="text-xs text-[#7C284C] font-medium mt-3">
+                Turning qualitative research into sharp creative direction
               </p>
             </div>
           </div>
 
           {/* Navigation between other case studies */}
-          <div className="pt-6 border-t border-[#241F21]/10">
+          <div className="pt-6 border-t border-[#241F21]/8">
             <p className="text-xs font-semibold uppercase tracking-wider text-[#574F53] mb-3">
               Explore Other Projects:
             </p>
@@ -282,7 +282,7 @@ export default function ProjectModal({
                 <button
                   key={other.id}
                   onClick={() => onSelectOtherProject(other.id)}
-                  className="px-3 py-1.5 rounded-full text-xs font-medium bg-white hover:bg-[#F4A7C1]/20 border border-[#241F21]/10 hover:border-[#7C284C] text-[#241F21] transition-all flex items-center gap-1.5"
+                  className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-white hover:bg-[#FFF9F5] border border-[#241F21]/8 hover:border-[#7C284C]/40 text-[#241F21] transition-all flex items-center gap-1.5 cursor-pointer"
                 >
                   <span>{other.brand}</span>
                   <span className="text-[#574F53]">•</span>
