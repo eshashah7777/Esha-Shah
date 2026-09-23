@@ -1,14 +1,10 @@
 import { useState } from 'react';
-import { ArrowUp, ArrowUpRight, Mail, Phone, MapPin, Linkedin, Copy, Check } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone, MapPin, Linkedin, Copy, Check } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolio';
 
 export default function Footer() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
@@ -183,20 +179,9 @@ export default function Footer() {
             <span>Digital Business & Advertising Portfolio</span>
           </div>
 
-          <div className="flex items-center gap-4">
-            <button
-              onClick={scrollToTop}
-              aria-label="Back to top"
-              className="px-3.5 py-1.5 rounded-full bg-white border border-[#241F21]/8 text-[#241F21] hover:bg-[#FFF9F5] transition-all shadow-2xs cursor-pointer flex items-center gap-1.5 text-xs font-medium"
-            >
-              <span>Back to Top</span>
-              <ArrowUp className="w-3 h-3" />
-            </button>
+          <div className="text-[11px] text-[#574F53]/70">
+            © 2026 Esha Shah. All rights reserved.
           </div>
-        </div>
-
-        <div className="pt-4 text-center sm:text-left text-[11px] text-[#574F53]/60">
-          © 2026 Esha Shah. All rights reserved.
         </div>
       </div>
     </footer>

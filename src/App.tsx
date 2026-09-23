@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Brands from './components/Brands';
 import Footer from './components/Footer';
+import BackToTop from './components/BackToTop';
 import ProjectModal from './components/ProjectModal';
 import { PROJECTS } from './data/portfolio';
 
@@ -85,6 +86,9 @@ export default function App() {
 
         {/* Footer / Let's Connect */}
         <Footer />
+
+        {/* Floating Back to Top Button */}
+        <BackToTop onScrollToTop={() => scrollToSection('hero')} />
 
         {/* Mini Case Study Experience Modal */}
         <ProjectModal
