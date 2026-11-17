@@ -59,6 +59,30 @@ const BRANDS: BrandItem[] = [
     scope: 'IKEA & Pepperfry Competitor Scans',
     image: '/brands/home-centre.png',
     fallbackUrl: 'https://i.ibb.co/d0F5k6KT/image.png'
+  },
+  {
+    id: 'abd',
+    name: 'Allied Blenders & Distillers',
+    category: 'Beverages & Spirits',
+    scope: 'OCW, ICONiQ White & OCB Account Support',
+    image: '/brands/abd.png',
+    fallbackUrl: 'https://i.ibb.co/gZCvg0CJ/image.png'
+  },
+  {
+    id: 'tbz',
+    name: 'Tribhuvandas Bhimji Zaveri',
+    category: 'Fine Jewellery & Retail',
+    scope: 'Client Servicing & Category Research',
+    image: '/brands/tbz.png',
+    fallbackUrl: 'https://i.ibb.co/GQcRZ8SH/image.png'
+  },
+  {
+    id: 'birla',
+    name: 'Aditya Birla Group',
+    category: 'Conglomerate & Enterprise',
+    scope: 'Brand Strategy & Account Deliverables',
+    image: '/brands/birla.png',
+    fallbackUrl: 'https://i.ibb.co/Z6Q47Fk5/image.png'
   }
 ];
 

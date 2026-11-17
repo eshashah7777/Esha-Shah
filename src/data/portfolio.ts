@@ -221,8 +221,29 @@ export const PROJECTS: Project[] = [
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
+    id: 'bbh-india',
+    company: 'BBH India (Publicis)',
+    role: 'Account Management Intern',
+    period: 'October 2026 – January 2027',
+    featured: true,
+    badge: 'Featured Agency Experience',
+    highlights: [
+      'Supporting account management, brand communication, and campaign execution for Allied Blenders & Distillers (OCW, ICONiQ White, OCB).',
+      'Assisting with client servicing, competitive tracking, and category research for Tribhuvandas Bhimji Zaveri.',
+      'Contributing to brand strategy, consumer insights, and account deliverables for Birla.',
+      'Collaborating with cross-functional agency teams on research synthesis, benchmarking, and client presentation decks.'
+    ],
+    skills: [
+      { name: 'Client Servicing', icon: 'Briefcase' },
+      { name: 'Brand Strategy', icon: 'Lightbulb' },
+      { name: 'Competitive Research', icon: 'BarChart3' },
+      { name: 'Campaign Coordination', icon: 'Layers' },
+      { name: 'Account Management', icon: 'Users' }
+    ]
+  },
+  {
     id: 'publicis',
-    company: 'Publicis Groupe',
+    company: 'L & K Saatchi & Saatchi (Publicis)',
     role: 'Account Management Intern',
     period: 'June 2026 – September 2026',
     featured: true,
